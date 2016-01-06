@@ -1,0 +1,237 @@
+.products {
+    margin-bottom: 50px;
+}
+
+.products__list {
+    border: 1px solid $grey;
+    @include border-radius(7px);
+    overflow: hidden;
+    background: #fff;
+}
+
+.products__item {
+    border-top: 1px solid $grey;
+
+    &:first-child {
+        border-top: 0 none;
+    }
+}
+
+.products__item-inner {
+    padding: 19px 22px;
+    @include clearfix;
+    position: relative;
+}
+
+.products__left {
+    float: left;
+}
+
+.products__slideshow {
+    width: 140px;
+    float: left;
+    margin-bottom: 14px;
+}
+
+.products__slideshow-block {
+    margin-bottom: 14px;
+}
+
+.products__slideshow-display {
+    width: 134px;
+    height: 134px;
+    border: 1px solid $grey;
+    background: #fff;
+    position: relative;
+    display: block;
+    margin-bottom: 14px;
+    @include border-radius(3px);
+}
+
+.products__slideshow-img {
+    display: block;
+    max-width: 95%;
+    max-height: 95%;
+    @include absolute-center;
+}
+
+.products__slideshow-thumbs {
+    @include clearfix;
+    margin-left: -15px;
+}
+
+.products__slideshow-item {
+    margin-left: 15px;
+    float: left;
+
+    &.active {
+        .products__slideshow-link {
+            border-color: $orange;
+        }
+    }
+}
+
+.products__slideshow-link {
+    @extend .products__slideshow-display;
+    width: 34px;
+    height: 34px;
+    @include border-radius(3px);
+    margin-bottom: 0;
+    position: relative;
+    outline: none !important;
+
+    &:hover {
+        border-color: $orange;
+    }
+}
+
+.products__slideshow-thumb-img {
+    display: block;
+    max-width: 85%;
+    max-height: 85%;
+    @include absolute-center;
+}
+
+
+.products__article {
+    text-align: center;
+}
+
+
+.products__article-word {
+    @include inlineblock(middle);
+    font-size: 12px;
+    line-height: 16px;
+    color: #7f7f7f;
+    @include open-sans(bold);
+}
+
+.products__article-num {
+    @include inlineblock(middle);
+    font-size: 14px;
+    line-height: 16px;
+    color: $black;
+    @include open-sans(semibold);
+}
+
+.products__desc {
+    float: left;
+    width: 380px;
+    margin-left: 21px;
+}
+
+.products__desc-title {
+    font-size: 16px;
+    line-height: 18px;
+    @include open-sans(semibold);
+    color: #010101;
+    margin-bottom: 20px;
+    padding-top: 7px;
+}
+
+.products__desc-options {
+    display: inline;
+}
+
+.products__option-item {
+    background: transparent;
+    display: inline;
+}
+
+.products__option-key {
+    display: inline;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.products__option-value {
+    @extend .products__option-key;
+}
+
+.products__rating-stars {
+    @include inlineblock(middle);
+}
+
+$stars-map: sprite-map('icons/stars/*.png', $spacing: 70px);
+
+.products__rating-stars-item {
+    @include inlineblock(middle);
+    @include get-sprite($stars-map, empty);
+    &.products__rating-stars-item_filled {
+        @include get-sprite($stars-map, filled);
+    }
+}
+
+.products__rating-amount {
+    @include inlineblock(middle);
+    color: #fbfbfb;
+    font-size: 12px;
+    line-height: 15px;
+    width: 30px;
+    background: #b5beca;
+    @include border-radius(20px);
+    margin-left: 8px;
+    text-align: center;
+    @include open-sans(semibold);
+    margin-top: 4px;
+}
+
+.products__right {
+    position: absolute;
+    top: 23px;
+    bottom: 23px;
+    right: 23px;
+    width: 123px;
+}
+
+.products__info {
+    padding-left: 25px;
+    border-left: 1px solid $grey;
+    height: 100%;
+}
+
+
+.products__info-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.products__buy-btn {
+    @include inlineblock();
+    text-decoration: none;
+    padding: 9px 12px;
+    @include open-sans(bold);
+    @include border-radius(4px);
+    background: $orange;
+    color: #fff;
+    margin-bottom: 9px;
+}
+
+.products__price {
+    color: $black;
+    font-size: 20px;
+    line-height: 22px;
+    @include open-sans(semibold);
+}
+
+.products__availability {
+    @include open-sans(bold);
+    font-size: 12px;
+    line-height: 14px;
+    color: #7f7f7f;
+
+    &:before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        @include border-radius(50%);
+        background: #60ac49;
+        @include inlineblock(middle);
+        margin-right: 8px;
+    }
+}
+
+
+@import "../_views/grid-views";
+@import "../_views/line-views";

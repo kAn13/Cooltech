@@ -1,0 +1,104 @@
+.footer {
+    position: relative;
+    background: url(../img/bg_footer.png) repeat;
+}
+
+.footer__top {
+    padding-top: 34px;
+}
+
+.footer__left {
+    width: 45%;
+    float: left;
+    padding-top: 34px;
+}
+
+.footer__right {
+    width: 55%;
+    float: right;
+    text-align: right;
+}
+
+
+.logo__footer {
+    .logo__img {
+        max-width: 255px;
+    }
+}
+
+$footer-socials-map: sprite-map('icons/footer-socials/*.png', $spacing: 70px);
+
+
+$footer-socials: fb, vk, tw;
+
+
+.socials_footer {
+    margin-bottom: 21px;
+
+    .socials__link {
+        width: 45px;
+        height: 45px;
+        background: #fff;
+        display: block;
+    }
+
+    .socials__item {
+        margin-left: 26px;
+    }
+
+    $items: fb, vk, tw;
+    @each $item in $items {
+        .socials__item_#{$item} {
+            .socials__link {
+                &:after {
+                    content: "";
+                    @include get-sprite($footer-socials-map, $item);
+                    @include absolute-center;
+                }
+
+                &:hover {
+                    &:after {
+                        $icon-name: $item + '-hover';
+                        @include get-sprite($footer-socials-map, $icon-name);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.footer__nav-item {
+    @include inlineblock();
+    margin-left: 33px;
+    margin-bottom: 15px;
+}
+
+
+.footer__nav-link {
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+
+.footer__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #494949;
+    color: #fff;
+    font-size: 12px;
+    line-height: 14px;
+    height: 28px;
+}
+
+.footer__copyright {
+    text-align: center;
+    padding-top: 8px;
+}

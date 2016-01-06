@@ -1,0 +1,72 @@
+aside.sidebar
+    .categories
+        ul.categories__list
+            - var items = ["Флагманы", "Бюджетная линейка"]
+            each item in items
+                li(class="categories__item" + ((item == "Бюджетная линейка") ? " categories__item-active" : ""))
+                    a(href="#").categories__link= item
+    .filter
+        ul.filter__list
+            li.filter__item
+                .filter__title
+                    a(href="#").filter__title-link Наличие в магазинах
+                .filter__content
+                    ul.filter__choose
+                        - var items = ["Во всех магазинах", "В ближайшем ко мне магазине"]
+                        each item in items
+                            li.filter__choose-item
+                                label.filter__choose-label
+                                    input(type="radio" name="location").filter__choose-input
+                                    .filter__choose-elem
+                                    .filter__choose-text= item
+            li.filter__item
+                .filter__title
+                    a(href="#").filter__title-link Бренды
+                .filter__content
+                    ul.filter__choose.filter__choose-checkboxes
+                        - var items = ["Lenovo", "Apple", "Samsung", "Asus", "Motorola"]
+                        each item in items
+                            li.filter__choose-item
+                                label.filter__choose-label
+                                    input(type="checkbox" name="location").filter__choose-input
+                                    .filter__choose-elem
+                                    .filter__choose-text= item
+                    .filter__reset--wrap
+                        a(href="#").filter__reset Сбросить фильтр
+            li.filter__item
+                .filter__title
+                    a(href="#").filter__title-link Цена
+                .filter__content
+                    .filter__slider
+                        .filter__slider-displays
+                            .filter__slider-left
+                                .filter__slider-text от
+                                input(type="text" name="" placeholder="").filter__slider-input.filter__slider-input_from
+                            .filter__slider-right
+                                .filter__slider-text до
+                                input(type="text" name="" placeholder="").filter__slider-input.filter__slider-input_to
+                        div(class="filter__slider-element" data-min = "0" data-max="13000")
+            li.filter__item
+                .filter__title
+                    a(href="#").filter__title-link Цвет
+                .filter__content
+                    ul.filter__colors
+                        - var colors = ["fff", "ccc", "000", "0a3153", "ff1800", "fff343", "fb914a", "92c37c", "40a6ff", "9870ad", "dc78ad", "7f401d"]
+                        each color in colors
+                            li.filter__colors-item
+                                a(href="#" style="background-color: #" + color).filter__colors-link
+            li.filter__item
+                .filter__title
+                    a(href="#").filter__title-link Операционные системы
+                .filter__content
+
+                    ul.filter__choose.filter__choose-checkboxes
+                        - var items = ["Android", "iOS", "Windows Mobile", "Symbian", "Custom"]
+                        each item in items
+                            li.filter__choose-item
+                                label.filter__choose-label
+                                    input(type="checkbox" name="location").filter__choose-input
+                                    .filter__choose-elem
+                                    .filter__choose-text= item
+                    .filter__reset--wrap
+                            a(href="#").filter__reset Сбросить фильтр

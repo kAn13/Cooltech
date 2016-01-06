@@ -1,0 +1,235 @@
+.main-title {
+    font-size: 20px;
+    line-height: 22px;
+    @include open-sans(semibold);
+    color: $black;
+    margin-bottom: 30px;
+}
+
+.main-content {
+    @include clearfix;
+    margin-bottom: 30px;
+}
+
+.content {
+    float: right;
+    width: 743px;
+}
+
+//- filter
+
+.filter__content {
+    // display: none;
+    margin-top: 15px;
+}
+
+.filter__list {
+    @extend .categories__list;
+}
+
+.filter__item {
+    padding: 12px 26px;
+    border-top: 1px solid $grey;
+    position: relative;
+
+    &:first-child {
+        border-top: 0 none;
+    }
+
+    &.active {
+        // .filter__title {
+        //     margin-bottom: 18px;
+        // }
+        .filter__title-link {
+            &:after {
+                @include transform(rotate(135deg));
+            }
+        }
+    }
+
+}
+
+.filter__title {
+    // margin-bottom: 18px;
+    padding-right: 30px;
+}
+
+.filter__choose-item {
+    margin-top: 16px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+
+.filter__title-link {
+    color: $black;
+    font-size: 16px;
+    line-height: 18px;
+    @include open-sans(semibold);
+    text-decoration: none;
+    display: block;
+
+    &:after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        top: 13px;
+        width: 12px;
+        height: 12px;
+        border-left: 2px solid $grey;
+        border-bottom: 2px solid $grey;
+        @include transition(transform .3s);
+        @include transform(rotate(-45deg));
+
+    }
+}
+
+.filter__choose {
+    margin-bottom: 9px;
+}
+
+.filter__choose-label {
+    display: block;
+    position: relative;
+}
+
+.filter__choose-elem {
+    border: 3px solid #dee1e4;
+    width: 13px;
+    height: 13px;
+    @include border-radius(50%);
+    position: relative;
+    @include transition(border-color .3s);
+    @include inline-block();
+
+    &:after {
+        content: "";
+        @include absolute-center;
+        width: 0;
+        height: 0;
+        @include border-radius(50%);
+        background: $orange;
+        @include transition(.3s);
+    }
+}
+
+.filter__choose-input {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+
+    &:checked + .filter__choose-elem {
+        border-color: $orange;
+
+        &:after {
+            width: 9px;
+            height: 9px;
+        }
+    }
+}
+
+.filter__choose-text {
+    @include inlineblock();
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 240px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.filter__choose-checkboxes {
+    .filter__choose-input {
+        &:checked + .filter__choose-elem {
+            background: $orange;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+    .filter__choose-elem {
+        width: 20px;
+        height: 20px;
+        @include border-radius(4px);
+        background: $grey;
+        @include transition(.2s);
+        border: 0 none;
+
+        &:after {
+            content: "";
+            display: block;
+            @include absolute-center;
+            opacity: 0;
+            @include transition(.2s);
+            @include get-sprite($misc-sprite, checkbox);
+            @include border-radius(0);
+            width: 13px !important;
+            height: 10px !important;
+        }
+
+    }
+}
+
+.filter__reset {
+    color: #5db2fc;
+    font-size: 14px;
+    line-height: 16px;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.filter__colors-link {
+    border: 1px solid $grey;
+    width: 37px;
+    height: 37px;
+    display: block;
+}
+
+.filter__colors-item {
+    @include inlineblock();
+    border: 3px solid transparent;
+    margin-left: 10px;
+    margin-bottom: 8px;
+
+    &:hover {
+        border-color: $orange;
+    }
+}
+
+.filter__colors {
+    margin-left: -10px;
+}
+
+.filter__slider-displays {
+    @include clearfix;
+    margin-bottom: 18px;
+}
+
+.filter__slider-left {
+    width: 50%;
+    float: left;
+}
+
+.filter__slider-right {
+    width: 50%;
+    float: right;
+}
+
+.filter__slider-input {
+    @extend .search__form-input;
+    // padding: 10px 8px;
+    width: 83px;
+    @include inlineblock(middle);
+}
+
+.filter__slider-text {
+    @include inlineblock(middle);
+    font-size: 14px;
+    line-height: 16px;
+}
+

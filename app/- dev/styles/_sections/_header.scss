@@ -1,0 +1,175 @@
+@import "icons/socials/*.png";
+.header {
+    background: #fff;
+}
+
+//- header top
+
+.header__top {
+    border-bottom: 2px solid #ebedef;
+    padding: 25px 0;
+}
+
+.socials__item {
+    @include inlineblock(middle);
+    margin-left: 12px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.socials__link {
+    display: block;
+    width: 26px;
+    height: 26px;
+    @include border-radius(50%);
+    position: relative;
+    background: #333;
+}
+
+// .socials__icon {
+//     @include absolute-center;
+// }
+
+
+$socials: fb, vk, tw;
+
+$socials-map: sprite-map('icons/socials/*.png', $spacing: 70px, $socials-layout: horizontal);
+
+@each $social in $socials {
+    .socials__item_#{$social} {
+        .socials__link {
+            &:after {
+                content: "";
+                @include get-sprite($socials-map, $social);
+                @include absolute-center;
+            }
+
+            &:hover {
+                &:after {
+                    $social-name: $social + '-hover';
+                    @include get-sprite($socials-map, $social-name);
+                }
+            }
+        }
+    }
+}
+
+.header__top-left {
+    width: 50%;
+    float: left;
+}
+
+.header__top-right {
+    width: 50%;
+    float: right;
+}
+
+.address {
+    @include inlineblock(middle);
+    margin-left: 82px;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 24px;
+    &:before {
+        content: "";
+        @include get-sprite($misc-sprite, map);
+        @include inlineblock(middle);
+        margin-right: 9px;
+    }
+}
+
+.phone {
+    @include inlineblock(middle);
+    margin-left: 92px;
+    color: $black;
+    text-decoration: none;
+    @include open-sans(semibold);
+    font-size: 18px;
+    line-height: 24px;
+    &:before {
+        content: "";
+        @include inlineblock(middle);
+        margin-right: 4px;
+        @include get-sprite($misc-sprite, telephone);
+    }
+}
+
+//- header bottom
+
+.header__bottom {
+    background: #f4f4f4;
+    padding: 30px 0;
+}
+
+.logo {
+    float: left;
+}
+
+.logo__img {
+    display: block;
+    max-width: 250px;
+}
+
+.logo__text {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+}
+
+.search {
+    float: left;
+    margin-right: 50px;
+    margin-left: 56px;
+}
+
+.menu {
+    float: left;
+    padding-top: 8px;
+}
+
+.menu__link {
+    font-size: 16px;
+    line-height: 18px;
+    color: $black;
+    @include open-sans(semibold);
+    text-decoration: none;
+
+    &:hover {
+        color: $orange;
+
+    }
+}
+
+.menu__item {
+    @include inlineblock;
+    margin-left: 28px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.search__form-input {
+    border: 1px solid #dee1e4;
+    @include border-radius(5px);
+    padding: 7px 15px;
+    width: 259px;
+    margin-right: -7px;
+    outline: 0;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.search__form-submit {
+    width: 79px;
+    height: 35px;
+    background: $orange;
+    color: #fff;
+    @include open-sans(semibold);
+    border: 0 none;
+    outline: 0;
+    @include border-radius(0 5px 5px 0);
+    border: 1px solid $orange;
+}

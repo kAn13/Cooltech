@@ -1,0 +1,37 @@
+.sidebar {
+    float: left;
+    width: 332px;
+}
+
+.categories {
+    margin-bottom: 40px;
+    background: #fff;
+}
+
+.categories__list {
+    border: 1px solid #dee1e4;
+    @include border-radius(5px);
+    overflow: hidden;
+}
+
+.categories__item {
+    border-top: 1px solid #dee1e4;
+
+    &:first-child {
+        border-top: 0 none;
+    }
+
+    &.categories__item-active {
+        background: #d9e5ea;
+        color: #5d656c;
+    }
+}
+
+.categories__link {
+    display: block;
+    width: 100%;
+    padding: 11px 30px;
+    color: #7f7f7f;
+    text-decoration: none;
+    @include box-sizing(border-box);
+}
